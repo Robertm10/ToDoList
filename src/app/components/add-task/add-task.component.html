@@ -1,0 +1,36 @@
+<!-- <form class="add-form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <label for="text">Task</label>
+        <input type="text" name="text" id="text" [(ngModel)]="text" placeholder="Add Task">
+    </div>
+    <div class="form-control">
+        <label for="day">Day & Time</label>
+        <input type="text" name="day" id="day" [(ngModel)]="day" placeholder="Add Day & Time">
+    </div>
+    <div class="form-control form-control-check">
+        <label for="reminder">Set Reminder</label>
+        <input type="checkbox" name="reminder" id="reminder" [(ngModel)]="reminder">
+    </div>
+    <input type="submit" value="Save Task" class="btn btn-block">
+</form> -->
+
+<form *ngIf="showAddTask"  class="add-form" [formGroup]="form">
+    <div class="form-control">
+        <label for="text">Task</label>
+    <input placeholder="Name" formControlName="text" type="text"/>
+</div>
+<div class="form-control">
+    <label for="day">Day Time</label>
+    <input placeholder="Day" formControlName="day" type="text"/>
+</div>
+<div class="form-control form-control-check">
+    <label for="reminder">Set Reminder</label>
+    <input formControlName="reminder" type="checkbox"/>
+</div>
+    <button class="btn btn-block" [disabled]="form.invalid" (click)="saveForm()">Save</button>
+</form>
+
+<!-- <div>
+    <b>{{ person.id }}</b>
+    {{ person.name + ' ' + person.description }}
+</div> -->
